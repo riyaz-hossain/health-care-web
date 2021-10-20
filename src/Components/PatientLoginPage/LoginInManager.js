@@ -26,14 +26,9 @@ export const googleSignIn = () => {
 
 const updateUserName = (firstName, lastName) => {
     const user = auth.currentUser;
+    console.log('user :>> ', user.displayName);
+    user.displayName = firstName + " " + lastName
 
-    user.updateProfile({
-        displayName: firstName + " " + lastName,
-    })
-        .then((res) => {
-            console.log(res);
-        })
-        .catch(function (error) {});
 };
 
 export const createUserEmailAndPassword = (
@@ -58,15 +53,15 @@ export const createUserEmailAndPassword = (
         });
 };
 
-
-
 export const signInWithEmailPass = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
             const newUserInfo = res.user;
             newUserInfo.error = "";
             newUserInfo.isSignedIn = true;
+            console.log('res :>> ', res);
             return newUserInfo;
+
         })
         .catch(function (error) {
             const newUserInfo = {};
@@ -74,11 +69,6 @@ export const signInWithEmailPass = (email, password) => {
             return newUserInfo;
         });
 };
-
-
-
-
-
 
 export const signOutFromAccount = () => {
     return signOut(auth)
