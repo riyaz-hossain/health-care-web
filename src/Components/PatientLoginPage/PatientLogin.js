@@ -131,7 +131,7 @@ const PatientLogin = () => {
                 (res) => {
                     setUser(res);
                     setLoggedInUser(res);
-                    history.replace(from);
+                    history.replace("/appointment");
                 }
             );
         }
@@ -188,7 +188,7 @@ const PatientLogin = () => {
                                                 label="First Name"
                                                 required
                                                 name="firstName"
-                                                onBlur={handleBlur}
+                                                onChange={handleBlur}
                                             />
                                         )}
                                         <br />
@@ -196,7 +196,7 @@ const PatientLogin = () => {
                                             <TextField
                                                 label="Last Name"
                                                 required
-                                                onBlur={handleBlur}
+                                                onChange={handleBlur}
                                                 name="lastName"
                                             />
                                         )}
@@ -204,7 +204,7 @@ const PatientLogin = () => {
                                         <TextField
                                             label="Username or Email"
                                             required
-                                            onBlur={handleBlur}
+                                            onChange={handleBlur}
                                             name="email"
                                             type="email"
                                         />
@@ -215,7 +215,7 @@ const PatientLogin = () => {
                                             type="password"
                                             autoComplete="current-password"
                                             required
-                                            onBlur={handleBlur}
+                                            onChange={handleBlur}
                                             name="password"
                                         />
                                         <br />
@@ -225,7 +225,7 @@ const PatientLogin = () => {
                                                 type="password"
                                                 autoComplete="current-password"
                                                 required
-                                                onBlur={handleBlur}
+                                                onChange={handleBlur}
                                                 name="confirmPassword"
                                             />
                                         )}
